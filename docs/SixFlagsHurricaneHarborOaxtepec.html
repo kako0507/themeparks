@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>ThemeParks Class: TokyoDisneyResortDisneySea</title>
+	<title>ThemeParks Class: SixFlagsHurricaneHarborOaxtepec</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,16 +72,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: TokyoDisneyResortDisneySea</h1>
+	<h1 class="page-title">Class: SixFlagsHurricaneHarborOaxtepec</h1>
 <section>
 
 <header>
     
         <h2>
-        TokyoDisneyResortDisneySea
+        SixFlagsHurricaneHarborOaxtepec
         </h2>
         
-            <div class="class-description">Tokyo Disney Resort - Disney Sea</div>
+            <div class="class-description">Six Flags Hurricane Harbor, Oaxtepec</div>
         
     
 </header>
@@ -93,7 +93,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="TokyoDisneyResortDisneySea"><span class="type-signature"></span>new TokyoDisneyResortDisneySea()</h4>
+    <h4 class="name" id="SixFlagsHurricaneHarborOaxtepec"><span class="type-signature"></span>new SixFlagsHurricaneHarborOaxtepec()</h4>
     
     
 </dt>
@@ -173,7 +173,7 @@
 
 
     <ul>
-        <li><a href="DisneyTokyoPark.html">DisneyTokyoPark</a></li>
+        <li><a href="SixFlagsPark.html">SixFlagsPark</a></li>
     </ul>
 
 
@@ -803,113 +803,6 @@ This is usually randomly generated on object construction
             
 <hr>
 <dt>
-    <h4 class="name" id="fetchWaitTimes"><span class="type-signature"></span>fetchWaitTimes()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Refresh/Fetch new Wait Times for this Tokyo Disney Resort park
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="DisneyTokyoPark.html#fetchWaitTimes">DisneyTokyoPark#fetchWaitTimes</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
     <h4 class="name" id="findRideObject"><span class="type-signature"></span>findRideObject(ride)</h4>
     
     
@@ -1121,7 +1014,7 @@ This is usually randomly generated on object construction
             
 <hr>
 <dt>
-    <h4 class="name" id="getAcccessToken"><span class="type-signature"></span>getAcccessToken()</h4>
+    <h4 class="name" id="getAccessToken"><span class="type-signature"></span>getAccessToken()</h4>
     
     
 </dt>
@@ -1129,7 +1022,7 @@ This is usually randomly generated on object construction
 
     
     <div class="description">
-        Get the Geo-Locked access token for accessing Tokyo Disneyland wait times
+        Get an access token for making Six Flags API requests
     </div>
     
 
@@ -1153,7 +1046,7 @@ This is usually randomly generated on object construction
 	<dd class="inherited-from">
 		<ul class="dummy">
 			<li>
-				<a href="DisneyTokyoPark.html#getAcccessToken">DisneyTokyoPark#getAcccessToken</a>
+				<a href="SixFlagsPark.html#getAccessToken">SixFlagsPark#getAccessToken</a>
 			</li>
 		</ul>
 	</dd>
@@ -1200,30 +1093,6 @@ This is usually randomly generated on object construction
     
 
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    tdrloc cookie needed for accessing wait time pages
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;String></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
@@ -1438,7 +1307,8 @@ If the last argument is not a function, this will return a Promise.
 
     
     <div class="description">
-        Fetch English ride names from the API
+        Get rides names for all the rides in this park
+This is either fetched from cache or fresh from the API if not fetched for a while
     </div>
     
 
@@ -1462,7 +1332,7 @@ If the last argument is not a function, this will return a Promise.
 	<dd class="inherited-from">
 		<ul class="dummy">
 			<li>
-				<a href="DisneyTokyoPark.html#getRideNames">DisneyTokyoPark#getRideNames</a>
+				<a href="SixFlagsPark.html#getRideNames">SixFlagsPark#getRideNames</a>
 			</li>
 		</ul>
 	</dd>
@@ -1513,7 +1383,7 @@ If the last argument is not a function, this will return a Promise.
     
             
 <div class="param-desc">
-    `ride ID` to English names
+    Object of Ride IDs => Ride Names
 </div>
 
 

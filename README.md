@@ -18,32 +18,32 @@ If you were using wdwJS previously, please follow this guide to [migrate from wd
 ## Example Use
 
     // include the Themeparks library
-    var Themeparks = require("themeparks");
+    const Themeparks = require('themeparks');
 
     // list all the parks supported by the library
-    for (var park in Themeparks.Parks) {
-        console.log("* " + new Themeparks.Parks[park]().Name + " (DisneyAPI." + park + ")");
-    }
+    themeparks.AllParks.forEach((ParkClass, i) => {
+        console.log("* " + ParkClass.name);
+    });
 
     // access a specific park
-    var disneyMagicKingdom = new Themeparks.Parks.WaltDisneyWorldMagicKingdom();
+    const disneyMagicKingdom = new Themeparks.Parks.WaltDisneyWorldMagicKingdom();
 
     // access wait times by Promise
-    disneyMagicKingdom.GetWaitTimes().then(function(rides) {
+    disneyMagicKingdom.getWaitTimes().then((rides) => {
         // print each wait time
-        for(var i=0, ride; ride=rides[i++];) {
+        rides.forEach((ride) => {
             console.log(ride.name + ": " + ride.waitTime + " minutes wait");
-        }
+        })
     }, console.error);
 
     // get park opening times
-    disneyMagicKingdom.GetOpeningTimes().then(function(times) {
+    disneyMagicKingdom.getOpeningTimes().then((times) => {
         // print opening times
-        for(var i=0, time; time=times[i++];) {
-            if (time.type == "Operating") {
+        times.forEach((time) => {
+            if (time.type === 'Operating') {
                 console.log("[" + time.date + "] Open from " + time.openingTime + " until " + time.closingTime);
             }
-        }
+        });
     }, console.error);
 
 ### Caching
@@ -54,14 +54,14 @@ This is highly recommended. Using caching allows various data to persist between
 
 First, install the caching system you wish to use with node-cache-manager. For example, the below uses file-system caching (Redis/Mongo or the alike recommended). For this example, you can install the filesystem cacher with ```npm install cache-manager-fs-binary --save```.
 
-To do so, populate the Themeparks.Settings.Cache variables before using the library.
+To do so, populate the Themeparks.settings.cache variables before using the library.
 
     // include the Themeparks library
-    var Themeparks = require("themeparks");
+    const Themeparks = require('themeparks');
 
     // initialise caching (see https://github.com/BryanDonovan/node-cache-manager)
-    var cacheManager = require('cache-manager');
-    Themeparks.Settings.Cache = cacheManager.caching({
+    const cacheManager = require('cache-manager');
+    Themeparks.settings.cache = cacheManager.caching({
         store: require('cache-manager-fs-binary'),
         options: {
             reviveBuffers: false,
@@ -77,18 +77,18 @@ See [https://github.com/BryanDonovan/node-cache-manager](https://github.com/Brya
 
 ### Using Promises or callbacks
 
-Both GetWaitTimes and GetOpeningTimes work either through callback or Promises.
+Both getWaitTimes and getOpeningTimes work either through callback or Promises.
 
 This is the same as the above example, but using a callback instead of a Promise.
 
     // access wait times via callback
-    disneyMagicKingdom.GetWaitTimes(function(err, rides) {
+    disneyMagicKingdom.getWaitTimes((err, rides) => {
         if (err) return console.error(err);
 
         // print each wait time
-        for(var i=0, ride; ride=rides[i++];) {
+        ride.forEach((ride) => {
             console.log(ride.name + ": " + ride.waitTime + " minutes wait");
-        }
+        });
     });
 
 ### Proxy
@@ -96,10 +96,10 @@ This is the same as the above example, but using a callback instead of a Promise
 If you wish to use themeparks with a proxy, you can set a proxy in the library settings.
 
     // include the Themeparks library
-    var Themeparks = require("themeparks");
+    const Themeparks = require('themeparks');
 
     // setup proxy (this is a library-wide setting, all further HTTP requests will use this proxy)
-    Themeparks.Settings.ProxyURL = "socks://127.0.0.1:9050";
+    Themeparks.settings.proxyUrl = 'socks://127.0.0.1:9050';
 
 ## Change Log
 
@@ -109,59 +109,60 @@ If you wish to use themeparks with a proxy, you can set a proxy in the library s
 
 <!-- START_SUPPORTED_PARKS_LIST -->
 
-* Magic Kingdom - Walt Disney World Florida (ThemeParks.Parks.WaltDisneyWorldMagicKingdom)
-* Epcot - Walt Disney World Florida (ThemeParks.Parks.WaltDisneyWorldEpcot)
-* Hollywood Studios - Walt Disney World Florida (ThemeParks.Parks.WaltDisneyWorldHollywoodStudios)
-* Animal Kingdom - Walt Disney World Florida (ThemeParks.Parks.WaltDisneyWorldAnimalKingdom)
-* Magic Kingdom - Disneyland Resort (ThemeParks.Parks.DisneylandResortMagicKingdom)
-* California Adventure - Disneyland Resort (ThemeParks.Parks.DisneylandResortCaliforniaAdventure)
-* Magic Kingdom - Disneyland Paris (ThemeParks.Parks.DisneylandParisMagicKingdom)
-* Walt Disney Studios - Disneyland Paris (ThemeParks.Parks.DisneylandParisWaltDisneyStudios)
-* Magic Kingdom - Shanghai Disney Resort (ThemeParks.Parks.ShanghaiDisneyResortMagicKingdom)
-* Tokyo Disney Resort - Magic Kingdom (ThemeParks.Parks.TokyoDisneyResortMagicKingdom)
-* Tokyo Disney Resort - Disney Sea (ThemeParks.Parks.TokyoDisneyResortDisneySea)
-* Hong Kong Disneyland (ThemeParks.Parks.HongKongDisneyland)
-* Universal Studios Florida (ThemeParks.Parks.UniversalStudiosFlorida)
-* Universal's Islands Of Adventure (ThemeParks.Parks.UniversalIslandsOfAdventure)
-* Universal Volcano Bay (ThemeParks.Parks.UniversalVolcanoBay)
-* Universal Studios Hollywood (ThemeParks.Parks.UniversalStudiosHollywood)
-* Universal Studios Singapore (ThemeParks.Parks.UniversalStudiosSingapore)
-* Seaworld Orlando (ThemeParks.Parks.SeaworldOrlando)
-* Seaworld San Antonio (ThemeParks.Parks.SeaworldSanAntonio)
-* Seaworld San Diego (ThemeParks.Parks.SeaworldSanDiego)
-* Busch Gardens - Tampa Bay (ThemeParks.Parks.BuschGardensTampaBay)
-* Busch Gardens - Williamsburg (ThemeParks.Parks.BuschGardensWilliamsburg)
-* Sesame Place (ThemeParks.Parks.SesamePlace)
-* Europa Park (ThemeParks.Parks.EuropaPark)
-* Six Flags Over Texas (ThemeParks.Parks.SixFlagsOverTexas)
-* Six Flags Over Georgia (ThemeParks.Parks.SixFlagsOverGeorgia)
-* Six Flags St. Louis (ThemeParks.Parks.SixFlagsStLouis)
-* Six Flags Great Adventure (ThemeParks.Parks.SixFlagsGreatAdventure)
-* Six Flags Magic Mountain (ThemeParks.Parks.SixFlagsMagicMountain)
-* Six Flags Great America (ThemeParks.Parks.SixFlagsGreatAmerica)
-* Six Flags Fiesta Texas (ThemeParks.Parks.SixFlagsFiestaTexas)
-* Six Flags Hurricane Harbor, Arlington (ThemeParks.Parks.SixFlagsHurricaneHarborArlington)
-* Six Flags Hurricane Harbor, Los Angeles (ThemeParks.Parks.SixFlagsHurricaneHarborLosAngeles)
-* Six Flags America (ThemeParks.Parks.SixFlagsAmerica)
-* Six Flags Discovery Kingdom (ThemeParks.Parks.SixFlagsDiscoveryKingdom)
-* Six Flags New England (ThemeParks.Parks.SixFlagsNewEngland)
-* Six Flags Hurricane Harbor, Jackson (ThemeParks.Parks.SixFlagsHurricaneHarborJackson)
-* The Great Escape (ThemeParks.Parks.TheGreatEscape)
-* Six Flags White Water, Atlanta (ThemeParks.Parks.SixFlagsWhiteWaterAtlanta)
-* Six Flags México (ThemeParks.Parks.SixFlagsMexico)
-* La Ronde, Montreal (ThemeParks.Parks.LaRondeMontreal)
-* Alton Towers (ThemeParks.Parks.AltonTowers)
-* Thorpe Park (ThemeParks.Parks.ThorpePark)
-* Chessington World Of Adventures (ThemeParks.Parks.ChessingtonWorldOfAdventures)
-* Parc-Asterix (ThemeParks.Parks.AsterixPark)
-* Hershey Park (ThemeParks.Parks.HersheyPark)
-* Silver Dollar City (ThemeParks.Parks.SilverDollarCity)
+* Magic Kingdom - Walt Disney World Florida (ThemeParks.Parks.Magic Kingdom - Walt Disney World Florida)
+* Epcot - Walt Disney World Florida (ThemeParks.Parks.Epcot - Walt Disney World Florida)
+* Hollywood Studios - Walt Disney World Florida (ThemeParks.Parks.Hollywood Studios - Walt Disney World Florida)
+* Animal Kingdom - Walt Disney World Florida (ThemeParks.Parks.Animal Kingdom - Walt Disney World Florida)
+* Magic Kingdom - Disneyland Resort (ThemeParks.Parks.Magic Kingdom - Disneyland Resort)
+* California Adventure - Disneyland Resort (ThemeParks.Parks.California Adventure - Disneyland Resort)
+* Magic Kingdom - Disneyland Paris (ThemeParks.Parks.Magic Kingdom - Disneyland Paris)
+* Walt Disney Studios - Disneyland Paris (ThemeParks.Parks.Walt Disney Studios - Disneyland Paris)
+* Magic Kingdom - Shanghai Disney Resort (ThemeParks.Parks.Magic Kingdom - Shanghai Disney Resort)
+* Tokyo Disney Resort - Magic Kingdom (ThemeParks.Parks.Tokyo Disney Resort - Magic Kingdom)
+* Tokyo Disney Resort - Disney Sea (ThemeParks.Parks.Tokyo Disney Resort - Disney Sea)
+* Hong Kong Disneyland (ThemeParks.Parks.Hong Kong Disneyland)
+* Universal Studios Florida (ThemeParks.Parks.Universal Studios Florida)
+* Universal's Islands Of Adventure (ThemeParks.Parks.Universal's Islands Of Adventure)
+* Universal Volcano Bay (ThemeParks.Parks.Universal Volcano Bay)
+* Universal Studios Hollywood (ThemeParks.Parks.Universal Studios Hollywood)
+* Universal Studios Singapore (ThemeParks.Parks.Universal Studios Singapore)
+* Seaworld Orlando (ThemeParks.Parks.Seaworld Orlando)
+* Seaworld San Antonio (ThemeParks.Parks.Seaworld San Antonio)
+* Seaworld San Diego (ThemeParks.Parks.Seaworld San Diego)
+* Busch Gardens - Tampa Bay (ThemeParks.Parks.Busch Gardens - Tampa Bay)
+* Busch Gardens - Williamsburg (ThemeParks.Parks.Busch Gardens - Williamsburg)
+* Sesame Place (ThemeParks.Parks.Sesame Place)
+* Europa Park (ThemeParks.Parks.Europa Park)
+* Six Flags Over Texas (ThemeParks.Parks.Six Flags Over Texas)
+* Six Flags Over Georgia (ThemeParks.Parks.Six Flags Over Georgia)
+* Six Flags St. Louis (ThemeParks.Parks.Six Flags St. Louis)
+* Six Flags Great Adventure (ThemeParks.Parks.Six Flags Great Adventure)
+* Six Flags Magic Mountain (ThemeParks.Parks.Six Flags Magic Mountain)
+* Six Flags Great America (ThemeParks.Parks.Six Flags Great America)
+* Six Flags Fiesta Texas (ThemeParks.Parks.Six Flags Fiesta Texas)
+* Six Flags Hurricane Harbor, Arlington (ThemeParks.Parks.Six Flags Hurricane Harbor, Arlington)
+* Six Flags Hurricane Harbor, Los Angeles (ThemeParks.Parks.Six Flags Hurricane Harbor, Los Angeles)
+* Six Flags America (ThemeParks.Parks.Six Flags America)
+* Six Flags Discovery Kingdom (ThemeParks.Parks.Six Flags Discovery Kingdom)
+* Six Flags New England (ThemeParks.Parks.Six Flags New England)
+* Six Flags Hurricane Harbor, Jackson (ThemeParks.Parks.Six Flags Hurricane Harbor, Jackson)
+* The Great Escape (ThemeParks.Parks.The Great Escape)
+* Six Flags White Water, Atlanta (ThemeParks.Parks.Six Flags White Water, Atlanta)
+* Six Flags México (ThemeParks.Parks.Six Flags México)
+* La Ronde, Montreal (ThemeParks.Parks.La Ronde, Montreal)
+* Six Flags Hurricane Harbor, Oaxtepec (ThemeParks.Parks.Six Flags Hurricane Harbor, Oaxtepec)
+* Alton Towers (ThemeParks.Parks.Alton Towers)
+* Thorpe Park (ThemeParks.Parks.Thorpe Park)
+* Chessington World Of Adventures (ThemeParks.Parks.Chessington World Of Adventures)
+* Parc-Asterix (ThemeParks.Parks.Parc-Asterix)
+* Hershey Park (ThemeParks.Parks.Hershey Park)
+* Silver Dollar City (ThemeParks.Parks.Silver Dollar City)
 * Dollywood (ThemeParks.Parks.Dollywood)
-* Knott's Berry Farm (ThemeParks.Parks.KnottsBerryFarm)
-* Cedar Point (ThemeParks.Parks.CedarPoint)
+* Knott's Berry Farm (ThemeParks.Parks.Knott's Berry Farm)
+* Cedar Point (ThemeParks.Parks.Cedar Point)
 * Carowinds (ThemeParks.Parks.Carowinds)
-* Canada's Wonderland (ThemeParks.Parks.CanadasWonderland)
-* Kings Island (ThemeParks.Parks.KingsIsland)
+* Canada's Wonderland (ThemeParks.Parks.Canada's Wonderland)
+* Kings Island (ThemeParks.Parks.Kings Island)
 * Efteling (ThemeParks.Parks.Efteling)
 
 <!-- END_SUPPORTED_PARKS_LIST -->
@@ -187,7 +188,7 @@ If you wish to use themeparks with a proxy, you can set a proxy in the library s
 |Universal's Islands Of Adventure|&#10003;|&#10003;|&#10007;|
 |Universal Volcano Bay|&#10003;|&#10003;|&#10007;|
 |Universal Studios Hollywood|&#10003;|&#10003;|&#10007;|
-|Universal Studios Singapore|&#10003;|&#10003;|&#10007;|
+|Universal Studios Singapore|&#10003;|&#10007;|&#10007;|
 |Seaworld Orlando|&#10003;|&#10003;|&#10007;|
 |Seaworld San Antonio|&#10003;|&#10003;|&#10007;|
 |Seaworld San Diego|&#10003;|&#10003;|&#10007;|
@@ -212,6 +213,7 @@ If you wish to use themeparks with a proxy, you can set a proxy in the library s
 |Six Flags White Water, Atlanta|&#10003;|&#10003;|&#10007;|
 |Six Flags México|&#10003;|&#10003;|&#10007;|
 |La Ronde, Montreal|&#10003;|&#10003;|&#10007;|
+|Six Flags Hurricane Harbor, Oaxtepec|&#10003;|&#10003;|&#10007;|
 |Alton Towers|&#10003;|&#10003;|&#10007;|
 |Thorpe Park|&#10003;|&#10003;|&#10007;|
 |Chessington World Of Adventures|&#10003;|&#10003;|&#10007;|
@@ -239,14 +241,14 @@ If you wish to use themeparks with a proxy, you can set a proxy in the library s
             waitTime: (number: current wait time in minutes),
             active: (bool: is the ride currently active?),
             fastPass: (bool: is fastpass available for this ride?),
-            fastPassReturnTime: { (object containing current return times, parks supporting this will set FastPassReturnTimes to true - entire field may be null for unsupported rides or when fastPass has ran out for the day)
+            fastPassReturnTime: { (object containing current return times, parks supporting this will set fastPassReturnTimes to true - entire field may be null for unsupported rides or when fastPass has ran out for the day)
                 startTime: (string return time formatted as "HH:mm": start of the current return time period),
                 endTime: (string return time formatted as "HH:mm": end of the current return time period),
                 lastUpdate: (JavaScript Date object: last time the fastPass return time changed),
             },
             status: (string: will either be "Operating", "Closed", or "Down"),
             lastUpdate: (JavaScript Date object: last time this ride had new data),
-            schedule: { **schedule will only be present if park.SupportsRideSchedules is true**
+            schedule: { **schedule will only be present if park.supportsRideSchedules is true**
               openingTime: (timeFormat timestamp: opening time of ride),
               closingTime: (timeFormat timestamp: closing time of ride),
               type: (string: "Operating" or "Closed"),
@@ -284,23 +286,23 @@ There are some values available on each park object that may be useful.
 |Variable|Description|
 |:-------|:----------|
 |Name|Name of the park|
-|Timezone|The park's local timezone|
+|timezone|The park's local timezone|
 |Location|This park's location (as a "GeoLocation" object, see [GeoLocation Docs](https://cubehouse.github.io/themeparks/GeoLocation.html) for available methods/properties)|
-|SupportsWaitTimes|Does this park's API support ride wait times?|
-|SupportsOpeningTimes|Does this park's API support opening hours?|
-|SupportsRideSchedules|Does this park return schedules for rides?|
-|FastPass|Does this park have FastPass (or a FastPass-style service)?|
-|FastPassReturnTimes|Does this park tell you the FastPass return times?|
-|TimeNow([momentjs date format])|Current time at this park (optional momentjs date format to return time in)|
-|DateNow([momentjs date format])|Current date at this park (optional momentjs date format to return date in)|
+|supportsWaitTimes|Does this park's API support ride wait times?|
+|supportsOpeningTimes|Does this park's API support opening hours?|
+|supportsRideSchedules|Does this park return schedules for rides?|
+|fastPass|Does this park have fastPass (or a fastPass-style service)?|
+|fastPassReturnTimes|Does this park tell you the fastPass return times?|
+|timeNow([momentjs date format])|Current time at this park (optional momentjs date format to return time in)|
+|dateNow([momentjs date format])|Current date at this park (optional momentjs date format to return date in)|
 |UserAgent|The HTTP UserAgent this park is using to make API requests (usually randomly generated per-park at runtime)|
 
-    var ThemeParks = require("themeparks");
+    const ThemeParks = require('themeparks');
 
     // print each park's name, current location, and timezone
-    for (var park in ThemeParks.Parks) {
-      var parkObj = new ThemeParks.Parks[park]();
-      console.log("* " + parkObj.Name + " [" + parkObj.Location.toString() + "]: (" + parkObj.Timezone + ")");
+    for (let park in ThemeParks.Parks) {
+      const ParkClass = ThemeParks.Parks[park];
+      console.log("* " + ParkClass.parkName + " [" + ParkClass.location.toString() + "]: (" + ParkClass.timezone + ")");
     }
 
 Prints:
@@ -338,16 +340,17 @@ Prints:
 * Six Flags Magic Mountain [(34°25′24.46″N, 118°35′42.90″W)]: (America/Los_Angeles)
 * Six Flags Great America [(42°22′12.88″N, 87°56′9.30″W)]: (America/Chicago)
 * Six Flags Fiesta Texas [(29°35′59.28″N, 98°36′32.50″W)]: (America/Chicago)
-* Six Flags Hurricane Harbor, Arlington [(32°45′39.83″N, 97°4′58.44″W)]: (America/Chicago)
+* Six Flags Hurricane Harbor, Arlington [(32°45′23.40″N, 97°3′56.88″W)]: (America/Chicago)
 * Six Flags Hurricane Harbor, Los Angeles [(34°25′25.86″N, 118°35′42.05″W)]: (America/Los_Angeles)
 * Six Flags America [(38°54′4.46″N, 76°46′16.59″W)]: (America/New_York)
 * Six Flags Discovery Kingdom [(38°8′19.43″N, 122°13′59.70″W)]: (America/Los_Angeles)
 * Six Flags New England [(42°2′16.54″N, 72°36′55.92″W)]: (America/New_York)
-* Six Flags Hurricane Harbor, Jackson [(40°8′49.57″N, 74°26′13.56″W)]: (America/New_York)
+* Six Flags Hurricane Harbor, Jackson [(40°8′18.24″N, 74°26′25.80″W)]: (America/New_York)
 * The Great Escape [(43°21′1.80″N, 73°41′32.10″W)]: (America/New_York)
 * Six Flags White Water, Atlanta [(33°57′32.86″N, 84°31′10.37″W)]: (America/New_York)
 * Six Flags México [(19°17′43.40″N, 99°12′41.19″W)]: (America/Mexico_City)
 * La Ronde, Montreal [(45°31′19.18″N, 73°32′4.48″W)]: (America/Toronto)
+* Six Flags Hurricane Harbor, Oaxtepec [(18°53′48.12″N, 98°58′31.44″W)]: (America/Mexico_City)
 * Alton Towers [(52°59′27.83″N, 1°53′32.25″W)]: (Europe/London)
 * Thorpe Park [(51°24′19.80″N, 0°30′37.80″W)]: (Europe/London)
 * Chessington World Of Adventures [(51°20′58.56″N, 0°18′52.45″W)]: (Europe/London)
@@ -412,7 +415,7 @@ For each set of parks, a base object should be made with all the core logic for 
 
 Then, for each park, a basic shell object should be implemented that just configures the park's base object (and overrides anything in unusual setups).
 
-Throughout the API, please make use of the this.Log() function so debugging parks when things break is easier.
+Throughout the API, please make use of the this.log() function so debugging parks when things break is easier.
 
 Please raise issues and make pull requests with new features :)
 

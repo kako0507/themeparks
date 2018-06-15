@@ -27,12 +27,12 @@
             var ga, s;
             if (!_adblock) {
                 ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+                ga.src = ('https:' === document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
                 s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             }
             else {
                 ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
                 s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             }
         } ());
@@ -546,7 +546,7 @@ function __doPostBack(eventTarget, eventArgument) {
             4 April 2017, 12pm to 8pm*!<br />
             <span style="font-size: smaller;">Note: Admission ticket is required.<br />
             <br />
-            *Only Hollywood zone will be operating till 8pm. Rides and attractions will close as per the park operating hours.</span><br />
+          *Only Hollywood zone will be operating till 8pm. Rides and attractions will close as per the park operating hours.</span><br />
             <br />
             Universal Studios Singapore Annual and Season Passholders enjoy the priority lane, please <a href="/language/en-US/Homepage/Promotions/category/Attractions/item/FreeConeDay#item-Attractions-FreeConeDay" name="FreeConeDay">click here</a> to find out exclusive offers!</p>
             </td>
@@ -864,7 +864,7 @@ function rotate1() {
 	//Get the first image
 	var current = ($('div.rotator1 ul li.show1')?  $('div.rotator1 ul li.show1') : $('div.rotator1 ul li:first'));
 
-    if ( current.length == 0 ) current = $('div.rotator1 ul li:first');
+    if ( current.length === 0 ) current = $('div.rotator1 ul li:first');
 
 	//Get next image, when it reaches the end, rotate it back to the first image
 	var next = ((current.next().length) ? ((current.next().hasClass('show1')) ? $('div.rotator1 ul li:first') :current.next()) : $('div.rotator1 ul li:first'));
