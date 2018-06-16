@@ -1,27 +1,17 @@
-# themeparks (previously wdwJS)
+# themeparks fork from [cubehouse/themeparks](https://github.com/cubehouse/themeparks)
 
 An unofficial API library for accessing ride wait times and park opening times for many theme parks around the world, including Disney, Universal and SeaWorld parks.
 
-[![Build Status](https://travis-ci.org/cubehouse/themeparks.svg?branch=master)](https://travis-ci.org/cubehouse/themeparks) [![npm version](https://badge.fury.io/js/themeparks.svg)](https://badge.fury.io/js/themeparks) [![Dependency Status](https://beta.gemnasium.com/badges/github.com/cubehouse/themeparks.svg)](https://beta.gemnasium.com/projects/github.com/cubehouse/themeparks)
-[![npm history](https://nodei.co/npm-dl/themeparks.png)](https://www.npmjs.com/package/themeparks/)
-
-[Roadmap](https://github.com/cubehouse/themeparks/projects/1) | [Documentation](https://cubehouse.github.io/themeparks/) | [Change Log](CHANGELOG.md) | [Supported Parks](#supported-park-features)
-
-## Install
-
-    npm install themeparks --save
-
-## Migrate from wdwJS 3.0
-
-If you were using wdwJS previously, please follow this guide to [migrate from wdwJS 3.0 to themeparks 4.0](https://github.com/cubehouse/themeparks/wiki/Migrating-from-3.0-to-4.0)
+[![Build Status](https://travis-ci.org/kako0507/themeparks.svg?branch=master)](https://travis-ci.org/kako0507/themeparks) 
+[Supported Parks](#supported-park-features)
 
 ## Example Use
 
     // include the Themeparks library
-    const Themeparks = require('themeparks');
+    const Themeparks = require('./dist');
 
     // list all the parks supported by the library
-    themeparks.AllParks.forEach((ParkClass, i) => {
+    Themeparks.AllParks.forEach((ParkClass, i) => {
         console.log("* " + ParkClass.name);
     });
 
@@ -377,7 +367,9 @@ So, the project needs to be built into regular JavaScript to work with the older
 
 This will compile everything in source/ into dist/.
 
-Building will also create sourcemaps, so any stacktraces will point to the original code in the source/ directory.
+By running ``npm run build-dev``,
+
+building will also create sourcemaps, so any stacktraces will point to the original code in the source/ directory.
 
 ### Running Tests
 
@@ -406,34 +398,3 @@ Themeparks supports the standard NODE_DEBUG environment variable. Pass the name 
 Environment variables can be combined:
 
     NODE_DEBUG=themeparks PARKID=UniversalStudiosFlorida npm run testonline
-
-### Contributing
-
-Each park inherits it's core logic from lib/park.js.
-
-For each set of parks, a base object should be made with all the core logic for that API/park group.
-
-Then, for each park, a basic shell object should be implemented that just configures the park's base object (and overrides anything in unusual setups).
-
-Throughout the API, please make use of the this.log() function so debugging parks when things break is easier.
-
-Please raise issues and make pull requests with new features :)
-
-See full contribution guide at [Themeparks Contribution Guide](https://github.com/cubehouse/themeparks/wiki/Contributing).
-
-A rough guide for adding new parks is also available at [Adding New Parks to the ThemeParks API](https://github.com/cubehouse/themeparks/wiki/Adding-New-Parks).
-
-## People using themeparks
-
-If you're using themeparks for a project, please let me know! I'd love to see what people are doing!
-
-### Websites and Mobile Apps
-
-* [My Disney Visit](http://www.mydisneyvisit.com/) - Walt Disney World
-* [ChronoPass](https://play.google.com/store/apps/details?id=fr.dechriste.android.attractions&hl=en_GB) - Walt Disney World, Disneyland Paris, Parc Asterix, EuropaPark
-
-### Pebble Apps
-
-* [Disneyland California Wait Times](https://apps.getpebble.com/en_US/application/5656424b4431a2ce6c00008d)
-* [Disneyland Paris Wait Times](https://apps.getpebble.com/en_US/application/55e25e8d3ea1fb6fa30000bd)
-* [Disney World Wait Times](https://apps.getpebble.com/en_US/application/54bdb77b54845b1bf40000bb)

@@ -2,6 +2,7 @@ node_modules
 out
 *.log
 dist
+dist-dev
 temp.js
 test.js
 

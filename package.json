@@ -39,7 +39,8 @@
         "test": "npm run build && mocha dist/test.js",
         "travislocal": "trevor",
         "docs": "node dev/UpdateREADME.js && jsdoc -c docs.conf.json -R README.md -t node_modules/ink-docstrap/template -r -d docs",
-        "build": "babel lib --out-dir dist --source-maps",
+        "build": "babel lib --out-dir dist",
+        "build-dev": "babel lib --out-dir dist-dev --source-maps",
         "prepare": "npm run build",
         "postinstall": "npm dedupe",
         "lint": "eslint ./lib/**"
