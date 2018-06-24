@@ -1,10 +1,10 @@
 // allow console for unit tests
 /* eslint-disable no-console */
 
-const fs = require('fs');
-const http = require('../lib/http');
-
-const GeoLocation = require('../lib/geoLocation');
+import fs from 'fs';
+import http from '../lib/http';
+import GeoLocation from '../lib/geoLocation';
+import SixFlagsPark from '../lib/sixflags/index';
 
 console.log('# This script generated the SixFlags park files automatically');
 console.log('# There are so many parks by SixFlags, this is a far more convenient way of updating the codebase!');
@@ -18,8 +18,6 @@ if (!timezonedbapikey) {
   console.error('Please fill in the variable in the script and re-run');
   process.exit(0);
 }
-
-const SixFlagsPark = require('../lib/sixflags/index');
 
 SixFlagsPark.location = new GeoLocation({
   latitude: 33.7675,
@@ -58,10 +56,9 @@ function createParkString(park) {
 
       console.log(`Filling in ${parkID}`);
 
-      const parkString = `const SixFlagsPark = require('./index');
-
+      const parkString = `import SixFlagsPark from './index';
 // our simple geolocation object library
-const GeoLocation = require('../geoLocation');
+import GeoLocation from '../geoLocation';
 
 /**
  * ${park.name}
@@ -84,7 +81,7 @@ class ${parkID} extends SixFlagsPark {
   static parkId = '${park.parkId}';
 }
 
-module.exports = ${parkID};
+export default ${parkID};
 `;
       // write file
       const filename = parkID.toLowerCase();
@@ -113,11 +110,11 @@ sf.getAPIUrl({
     if (!c) {
       console.log('');
       requires.forEach((r) => {
-        console.log(`const ${r} = require('./sixflags/${r.toLowerCase()}');`);
+        console.log(`import ${r} from './sixflags/${r.toLowerCase()}';`);
       });
       console.log('');
       requires.forEach((r) => {
-        console.log(`const ${r} = require('./sixflags/${r.toLowerCase()}');`);
+        console.log(`import ${r} from './sixflags/${r.toLowerCase()}';`);
       });
       console.log('');
       requires.forEach((r) => {

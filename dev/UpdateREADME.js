@@ -1,7 +1,7 @@
 // this script generates the timezone and supported parks lists found in the README.md
-const fs = require('fs');
-const path = require('path');
-const ThemeParks = require('../dist');
+import fs from 'fs';
+import path from 'path';
+import ThemeParks from '../dist';
 
 let timezoneMarkdown = '\n';
 let supportedParksMarkdown = '\n';

@@ -920,10 +920,6 @@ builtin-modules@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
 
-cache-manager-memory-store@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/cache-manager-memory-store/-/cache-manager-memory-store-1.1.0.tgz#a67b4ee5c1de3562b443747835a9cce721fdd001"
-
 cache-manager@^2.6.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/cache-manager/-/cache-manager-2.9.0.tgz#5e1f6317ca1a25e40ddf365a7162757af152353e"
