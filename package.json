@@ -10,6 +10,7 @@
         "babel-eslint": "^8.2.3",
         "bluebird": "^3.5.1",
         "cache-manager": "^2.6.0",
+        "cache-manager-memory-store": "^1.1.0",
         "cheerio": "^1.0.0-rc.2",
         "cookie": "^0.3.1",
         "https-proxy-agent": "^2.2.0",
