@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#settings">settings</a></li>
+					<li><a href="global.html#wrap">wrap</a></li>
 				</ul>
 			</li>
 			
@@ -93,16 +93,14 @@
 
 
     <section class="readme-section">
-        <article><h1>themeparks (previously wdwJS)</h1><p>An unofficial API library for accessing ride wait times and park opening times for many theme parks around the world, including Disney, Universal and SeaWorld parks.</p>
-<p><a href="https://travis-ci.org/cubehouse/themeparks"><img src="https://travis-ci.org/cubehouse/themeparks.svg?branch=master" alt="Build Status"></a> <a href="https://badge.fury.io/js/themeparks"><img src="https://badge.fury.io/js/themeparks.svg" alt="npm version"></a> <a href="https://beta.gemnasium.com/projects/github.com/cubehouse/themeparks"><img src="https://beta.gemnasium.com/badges/github.com/cubehouse/themeparks.svg" alt="Dependency Status"></a>
-<a href="https://www.npmjs.com/package/themeparks/"><img src="https://nodei.co/npm-dl/themeparks.png" alt="npm history"></a></p>
-<p><a href="https://github.com/cubehouse/themeparks/projects/1">Roadmap</a> | <a href="https://cubehouse.github.io/themeparks/">Documentation</a> | <a href="CHANGELOG.md">Change Log</a> | <a href="#supported-park-features">Supported Parks</a></p>
-<h2>Install</h2><pre class="prettyprint source"><code>npm install themeparks --save</code></pre><h2>Migrate from wdwJS 3.0</h2><p>If you were using wdwJS previously, please follow this guide to <a href="https://github.com/cubehouse/themeparks/wiki/Migrating-from-3.0-to-4.0">migrate from wdwJS 3.0 to themeparks 4.0</a></p>
+        <article><h1>themeparks fork from <a href="https://github.com/cubehouse/themeparks">cubehouse/themeparks</a></h1><p>An unofficial API library for accessing ride wait times and park opening times for many theme parks around the world, including Disney, Universal and SeaWorld parks.</p>
+<p><a href="https://travis-ci.org/kako0507/themeparks"><img src="https://travis-ci.org/kako0507/themeparks.svg?branch=master" alt="Build Status"></a> 
+<a href="#supported-park-features">Supported Parks</a></p>
 <h2>Example Use</h2><pre class="prettyprint source"><code>// include the Themeparks library
-const Themeparks = require('themeparks');
+const Themeparks = require('./dist');
 
 // list all the parks supported by the library
-themeparks.AllParks.forEach((ParkClass, i) => {
+Themeparks.AllParks.forEach((ParkClass, i) => {
     console.log(&quot;* &quot; + ParkClass.name);
 });
 
@@ -180,12 +178,6 @@ Themeparks.settings.proxyUrl = 'socks://127.0.0.1:9050';</code></pre><h2>Change 
 <li>Universal Volcano Bay (ThemeParks.Parks.Universal Volcano Bay)</li>
 <li>Universal Studios Hollywood (ThemeParks.Parks.Universal Studios Hollywood)</li>
 <li>Universal Studios Singapore (ThemeParks.Parks.Universal Studios Singapore)</li>
-<li>Seaworld Orlando (ThemeParks.Parks.Seaworld Orlando)</li>
-<li>Seaworld San Antonio (ThemeParks.Parks.Seaworld San Antonio)</li>
-<li>Seaworld San Diego (ThemeParks.Parks.Seaworld San Diego)</li>
-<li>Busch Gardens - Tampa Bay (ThemeParks.Parks.Busch Gardens - Tampa Bay)</li>
-<li>Busch Gardens - Williamsburg (ThemeParks.Parks.Busch Gardens - Williamsburg)</li>
-<li>Sesame Place (ThemeParks.Parks.Sesame Place)</li>
 <li>Europa Park (ThemeParks.Parks.Europa Park)</li>
 <li>Six Flags Over Texas (ThemeParks.Parks.Six Flags Over Texas)</li>
 <li>Six Flags Over Georgia (ThemeParks.Parks.Six Flags Over Georgia)</li>
@@ -329,42 +321,6 @@ Themeparks.settings.proxyUrl = 'socks://127.0.0.1:9050';</code></pre><h2>Change 
 </tr>
 <tr>
 <td style="text-align:left">Universal Studios Singapore</td>
-<td style="text-align:left">&#10003;</td>
-<td style="text-align:left">&#10007;</td>
-<td style="text-align:left">&#10007;</td>
-</tr>
-<tr>
-<td style="text-align:left">Seaworld Orlando</td>
-<td style="text-align:left">&#10003;</td>
-<td style="text-align:left">&#10003;</td>
-<td style="text-align:left">&#10007;</td>
-</tr>
-<tr>
-<td style="text-align:left">Seaworld San Antonio</td>
-<td style="text-align:left">&#10003;</td>
-<td style="text-align:left">&#10003;</td>
-<td style="text-align:left">&#10007;</td>
-</tr>
-<tr>
-<td style="text-align:left">Seaworld San Diego</td>
-<td style="text-align:left">&#10003;</td>
-<td style="text-align:left">&#10003;</td>
-<td style="text-align:left">&#10007;</td>
-</tr>
-<tr>
-<td style="text-align:left">Busch Gardens - Tampa Bay</td>
-<td style="text-align:left">&#10003;</td>
-<td style="text-align:left">&#10003;</td>
-<td style="text-align:left">&#10007;</td>
-</tr>
-<tr>
-<td style="text-align:left">Busch Gardens - Williamsburg</td>
-<td style="text-align:left">&#10003;</td>
-<td style="text-align:left">&#10003;</td>
-<td style="text-align:left">&#10007;</td>
-</tr>
-<tr>
-<td style="text-align:left">Sesame Place</td>
 <td style="text-align:left">&#10003;</td>
 <td style="text-align:left">&#10003;</td>
 <td style="text-align:left">&#10007;</td>
@@ -684,12 +640,6 @@ for (let park in ThemeParks.Parks) {
 <li>Universal Volcano Bay [(28°27′44.28″N, 81°28′14.52″W)]: (America/New_York)</li>
 <li>Universal Studios Hollywood [(34°8′14.14″N, 118°21′19.86″W)]: (America/Los_Angeles)</li>
 <li>Universal Studios Singapore [(1°15′15.30″N, 103°49′25.67″E)]: (Asia/Singapore)</li>
-<li>Seaworld Orlando [(28°24′41.04″N, 81°27′47.88″W)]: (America/New_York)</li>
-<li>Seaworld San Antonio [(29°27′30.56″N, 98°41′59.45″W)]: (America/Chicago)</li>
-<li>Seaworld San Diego [(32°45′51.49″N, 117°13′35.19″W)]: (America/Los_Angeles)</li>
-<li>Busch Gardens - Tampa Bay [(28°2′0.94″N, 82°25′14.52″W)]: (America/New_York)</li>
-<li>Busch Gardens - Williamsburg [(37°14′14.01″N, 76°38′42.46″W)]: (America/New_York)</li>
-<li>Sesame Place [(40°11′8.40″N, 74°52′17.26″W)]: (America/New_York)</li>
 <li>Europa Park [(48°16′8.15″N, 7°43′17.61″E)]: (Europe/Berlin)</li>
 <li>Six Flags Over Texas [(32°45′17.95″N, 97°4′13.33″W)]: (America/Chicago)</li>
 <li>Six Flags Over Georgia [(33°46′14.08″N, 84°33′5.36″W)]: (America/New_York)</li>
@@ -727,7 +677,8 @@ for (let park in ThemeParks.Parks) {
 <h2>Development</h2><h3>Building</h3><p>This project is using ES6 features, which can't be used by legacy version of NodeJS. We're also using &quot;import&quot;, which is not available in NodeJS.</p>
 <p>So, the project needs to be built into regular JavaScript to work with the older NodeJS versions. This is done by running <code>npm run build</code></p>
 <p>This will compile everything in source/ into dist/.</p>
-<p>Building will also create sourcemaps, so any stacktraces will point to the original code in the source/ directory.</p>
+<p>By running <code>npm run build-dev</code>,</p>
+<p>building will also create sourcemaps, so any stacktraces will point to the original code in the source/ directory.</p>
 <h3>Running Tests</h3><p>themeparks supports mocha unit tests. Install mocha with npm install -g mocha</p>
 <p>Run the following to test the library's unit tests (this will build the library and then run functional offline unit tests):</p>
 <pre class="prettyprint source"><code>npm test</code></pre><p>You can also run unit tests against the source js files using <code>npm run testdev</code>.</p>
@@ -735,23 +686,7 @@ for (let park in ThemeParks.Parks) {
 <pre class="prettyprint source"><code>npm run testonline</code></pre><p>You can also test an individual park using the PARKID environment variable, for example:</p>
 <pre class="prettyprint source"><code>PARKID=UniversalStudiosFlorida npm run testonline</code></pre><h3>Debug Mode</h3><p>Themeparks supports the standard NODE_DEBUG environment variable. Pass the name of the library into NODE_DEBUG to turn on debug mode:</p>
 <pre class="prettyprint source"><code>NODE_DEBUG=themeparks npm run testonline</code></pre><p>Environment variables can be combined:</p>
-<pre class="prettyprint source"><code>NODE_DEBUG=themeparks PARKID=UniversalStudiosFlorida npm run testonline</code></pre><h3>Contributing</h3><p>Each park inherits it's core logic from lib/park.js.</p>
-<p>For each set of parks, a base object should be made with all the core logic for that API/park group.</p>
-<p>Then, for each park, a basic shell object should be implemented that just configures the park's base object (and overrides anything in unusual setups).</p>
-<p>Throughout the API, please make use of the this.log() function so debugging parks when things break is easier.</p>
-<p>Please raise issues and make pull requests with new features :)</p>
-<p>See full contribution guide at <a href="https://github.com/cubehouse/themeparks/wiki/Contributing">Themeparks Contribution Guide</a>.</p>
-<p>A rough guide for adding new parks is also available at <a href="https://github.com/cubehouse/themeparks/wiki/Adding-New-Parks">Adding New Parks to the ThemeParks API</a>.</p>
-<h2>People using themeparks</h2><p>If you're using themeparks for a project, please let me know! I'd love to see what people are doing!</p>
-<h3>Websites and Mobile Apps</h3><ul>
-<li><a href="http://www.mydisneyvisit.com/">My Disney Visit</a> - Walt Disney World</li>
-<li><a href="https://play.google.com/store/apps/details?id=fr.dechriste.android.attractions&amp;hl=en_GB">ChronoPass</a> - Walt Disney World, Disneyland Paris, Parc Asterix, EuropaPark</li>
-</ul>
-<h3>Pebble Apps</h3><ul>
-<li><a href="https://apps.getpebble.com/en_US/application/5656424b4431a2ce6c00008d">Disneyland California Wait Times</a></li>
-<li><a href="https://apps.getpebble.com/en_US/application/55e25e8d3ea1fb6fa30000bd">Disneyland Paris Wait Times</a></li>
-<li><a href="https://apps.getpebble.com/en_US/application/54bdb77b54845b1bf40000bb">Disney World Wait Times</a></li>
-</ul></article>
+<pre class="prettyprint source"><code>NODE_DEBUG=themeparks PARKID=UniversalStudiosFlorida npm run testonline</code></pre></article>
     </section>
 
 
@@ -797,7 +732,7 @@ for (let park in ThemeParks.Parks) {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2018-06-16T13:01:47+08:00
+		on 2018-06-27T02:25:20+08:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

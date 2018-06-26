@@ -116,12 +116,6 @@ If you wish to use themeparks with a proxy, you can set a proxy in the library s
 * Universal Volcano Bay (ThemeParks.Parks.Universal Volcano Bay)
 * Universal Studios Hollywood (ThemeParks.Parks.Universal Studios Hollywood)
 * Universal Studios Singapore (ThemeParks.Parks.Universal Studios Singapore)
-* Seaworld Orlando (ThemeParks.Parks.Seaworld Orlando)
-* Seaworld San Antonio (ThemeParks.Parks.Seaworld San Antonio)
-* Seaworld San Diego (ThemeParks.Parks.Seaworld San Diego)
-* Busch Gardens - Tampa Bay (ThemeParks.Parks.Busch Gardens - Tampa Bay)
-* Busch Gardens - Williamsburg (ThemeParks.Parks.Busch Gardens - Williamsburg)
-* Sesame Place (ThemeParks.Parks.Sesame Place)
 * Europa Park (ThemeParks.Parks.Europa Park)
 * Six Flags Over Texas (ThemeParks.Parks.Six Flags Over Texas)
 * Six Flags Over Georgia (ThemeParks.Parks.Six Flags Over Georgia)
@@ -178,13 +172,7 @@ If you wish to use themeparks with a proxy, you can set a proxy in the library s
 |Universal's Islands Of Adventure|&#10003;|&#10003;|&#10007;|
 |Universal Volcano Bay|&#10003;|&#10003;|&#10007;|
 |Universal Studios Hollywood|&#10003;|&#10003;|&#10007;|
-|Universal Studios Singapore|&#10003;|&#10007;|&#10007;|
-|Seaworld Orlando|&#10003;|&#10003;|&#10007;|
-|Seaworld San Antonio|&#10003;|&#10003;|&#10007;|
-|Seaworld San Diego|&#10003;|&#10003;|&#10007;|
-|Busch Gardens - Tampa Bay|&#10003;|&#10003;|&#10007;|
-|Busch Gardens - Williamsburg|&#10003;|&#10003;|&#10007;|
-|Sesame Place|&#10003;|&#10003;|&#10007;|
+|Universal Studios Singapore|&#10003;|&#10003;|&#10007;|
 |Europa Park|&#10003;|&#10003;|&#10007;|
 |Six Flags Over Texas|&#10003;|&#10003;|&#10007;|
 |Six Flags Over Georgia|&#10003;|&#10003;|&#10007;|
@@ -316,12 +304,6 @@ Prints:
 * Universal Volcano Bay [(28°27′44.28″N, 81°28′14.52″W)]: (America/New_York)
 * Universal Studios Hollywood [(34°8′14.14″N, 118°21′19.86″W)]: (America/Los_Angeles)
 * Universal Studios Singapore [(1°15′15.30″N, 103°49′25.67″E)]: (Asia/Singapore)
-* Seaworld Orlando [(28°24′41.04″N, 81°27′47.88″W)]: (America/New_York)
-* Seaworld San Antonio [(29°27′30.56″N, 98°41′59.45″W)]: (America/Chicago)
-* Seaworld San Diego [(32°45′51.49″N, 117°13′35.19″W)]: (America/Los_Angeles)
-* Busch Gardens - Tampa Bay [(28°2′0.94″N, 82°25′14.52″W)]: (America/New_York)
-* Busch Gardens - Williamsburg [(37°14′14.01″N, 76°38′42.46″W)]: (America/New_York)
-* Sesame Place [(40°11′8.40″N, 74°52′17.26″W)]: (America/New_York)
 * Europa Park [(48°16′8.15″N, 7°43′17.61″E)]: (Europe/Berlin)
 * Six Flags Over Texas [(32°45′17.95″N, 97°4′13.33″W)]: (America/Chicago)
 * Six Flags Over Georgia [(33°46′14.08″N, 84°33′5.36″W)]: (America/New_York)

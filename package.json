@@ -7,6 +7,7 @@
         "email": "me@jamie.holdings"
     },
     "dependencies": {
+        "axios": "^0.18.0",
         "babel-eslint": "^8.2.3",
         "bluebird": "^3.5.1",
         "cache-manager": "^2.6.0",
@@ -16,7 +17,7 @@
         "lodash": "^4.17.10",
         "moment": "^2.20.1",
         "moment-timezone": "^0.5.14",
-        "needle": "2.1.2",
+        "qs": "^6.5.2",
         "random-useragent": "^0.3.1",
         "relaxed-json": "^1.0.1",
         "socks-proxy-agent": "^3.0.1",
@@ -38,7 +39,7 @@
         "testonline": "mocha lib/testonline.js --compilers js:babel-core/register",
         "test": "npm run build && mocha dist/test.js",
         "travislocal": "trevor",
-        "docs": "bable-node dev/UpdateREADME.js && jsdoc -c docs.conf.json -R README.md -t node_modules/ink-docstrap/template -r -d docs",
+        "docs": "babel-node dev/UpdateREADME.js && jsdoc -c docs.conf.json -R README.md -t node_modules/ink-docstrap/template -r -d docs",
         "gensixflags": "env APIKEY=<Insert your API key here> babel-node dev/GenerateSixFlagsParks.js",
         "build": "babel lib --out-dir dist",
         "build-dev": "babel lib --out-dir dist-dev --source-maps",

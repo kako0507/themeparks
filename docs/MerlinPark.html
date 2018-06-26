@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#settings">settings</a></li>
+					<li><a href="global.html#wrap">wrap</a></li>
 				</ul>
 			</li>
 			
@@ -156,7 +156,157 @@ but rather extended for each of the individual Merlin parks
 
             
 
-            <td class="description last"></td>
+            <td class="description last">
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>deviceTokenCachetime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    86400000
+                
+                </td>
+            
+
+            <td class="description last">Time to cache device token, in milliseconds (optional)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userIdCachetime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    43200000
+                
+                </td>
+            
+
+            <td class="description last">Time to cache user ID, in milliseconds (optional)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dataCachetime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    43200000
+                
+                </td>
+            
+
+            <td class="description last">Time to ride data, in milliseconds (optional)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -1724,7 +1874,7 @@ Warning: full sync is ~30MB
             
 <hr>
 <dt>
-    <h4 class="name" id="findRideObject"><span class="type-signature"></span>findRideObject(ride)</h4>
+    <h4 class="name" id="findRideObject"><span class="type-signature"></span>findRideObject(rideId)</h4>
     
     
 </dt>
@@ -1767,50 +1917,7 @@ Warning: full sync is ~30MB
 
         <tr>
             
-                <td class="name"><code>ride</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Ride data to search for
-                <h6 class="method-params-label method-subparams-label">Properties</h6>
-                
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>rideId</code></td>
             
 
             <td class="type">
@@ -1828,13 +1935,6 @@ Warning: full sync is ~30MB
             
 
             <td class="description last">Ride's ID</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
         </tr>
 
     
@@ -3775,157 +3875,7 @@ but rather extended for each of the individual Merlin parks
 
             
 
-            <td class="description last">
-                <h6 class="method-params-label method-subparams-label">Properties</h6>
-                
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Argument</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>deviceTokenCachetime</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    86400000
-                
-                </td>
-            
-
-            <td class="description last">Time to cache device token, in milliseconds (optional)</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>userIdCachetime</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    43200000
-                
-                </td>
-            
-
-            <td class="description last">Time to cache user ID, in milliseconds (optional)</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>dataCachetime</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    43200000
-                
-                </td>
-            
-
-            <td class="description last">Time to ride data, in milliseconds (optional)</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -5493,7 +5443,7 @@ Warning: full sync is ~30MB
             
 <hr>
 <dt>
-    <h4 class="name" id="findRideObject"><span class="type-signature"></span>findRideObject(ride)</h4>
+    <h4 class="name" id="findRideObject"><span class="type-signature"></span>findRideObject(rideId)</h4>
     
     
 </dt>
@@ -5536,50 +5486,7 @@ Warning: full sync is ~30MB
 
         <tr>
             
-                <td class="name"><code>ride</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Ride data to search for
-                <h6 class="method-params-label method-subparams-label">Properties</h6>
-                
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>rideId</code></td>
             
 
             <td class="type">
@@ -5597,13 +5504,6 @@ Warning: full sync is ~30MB
             
 
             <td class="description last">Ride's ID</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
         </tr>
 
     
@@ -7497,7 +7397,7 @@ If the last argument is not a function, this will return a Promise.
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2018-06-16T13:01:48+08:00
+		on 2018-06-27T02:25:21+08:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

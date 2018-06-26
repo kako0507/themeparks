@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#settings">settings</a></li>
+					<li><a href="global.html#wrap">wrap</a></li>
 				</ul>
 			</li>
 			
@@ -181,7 +181,7 @@ This object will hold the ride's current state.</div>
 
         <tr>
             
-                <td class="name"><code>rideId</code></td>
+                <td class="name"><code>id</code></td>
             
 
             <td class="type">
@@ -205,7 +205,7 @@ This object will hold the ride's current state.</div>
 
         <tr>
             
-                <td class="name"><code>rideName</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
@@ -383,15 +383,15 @@ This object will hold the ride's current state.</div>
         
             
 <hr>
-<dt class="name" id="fastPass">
-    <h4 id="fastPass"><span class="type-signature"></span>fastPass<span class="type-signature"> :Boolean</span></h4>
+<dt class="name" id="detail">
+    <h4 id="detail"><span class="type-signature"></span>detail<span class="type-signature"> :Object</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        Set this ride's fast pass availability
+        Get this ride's detail
     </div>
     
 
@@ -400,7 +400,7 @@ This object will hold the ride's current state.</div>
         <ul>
             <li>
                 
-<span class="param-type">Boolean</span>
+<span class="param-type">Object</span>
 
 
 
@@ -525,18 +525,29 @@ This object will hold the ride's current state.</div>
         
             
 <hr>
-<dt class="name" id="fastPassReturnTimeAvailable">
-    <h4 id="fastPassReturnTimeAvailable"><span class="type-signature"></span>fastPassReturnTimeAvailable<span class="type-signature"></span></h4>
+<dt class="name" id="fastPass">
+    <h4 id="fastPass"><span class="type-signature"></span>fastPass<span class="type-signature"> :Boolean</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        Does this ride have a fastPass return time available?
+        Set this ride's fast pass availability
     </div>
     
 
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+
+            </li>
+        </ul>
     
 
     
@@ -605,6 +616,137 @@ only need to call this if fastPass availability has ran out
             <li>
                 
 <span class="param-type">Boolean</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="fastPassReturnTimeAvailable">
+    <h4 id="fastPassReturnTimeAvailable"><span class="type-signature"></span>fastPassReturnTimeAvailable<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Does this ride have a fastPass return time available?
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="fastPassReturnTimeEnd">
+    <h4 id="fastPassReturnTimeEnd"><span class="type-signature"></span>fastPassReturnTimeEnd<span class="type-signature"> :Moment</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Set this ride's fastPass return time window end
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Moment</span>
 
 
 
@@ -730,15 +872,15 @@ only need to call this if fastPass availability has ran out
         
             
 <hr>
-<dt class="name" id="fastPassReturnTimeEnd">
-    <h4 id="fastPassReturnTimeEnd"><span class="type-signature"></span>fastPassReturnTimeEnd<span class="type-signature"> :Moment</span></h4>
+<dt class="name" id="fastPassReturnTimeStart">
+    <h4 id="fastPassReturnTimeStart"><span class="type-signature"></span>fastPassReturnTimeStart<span class="type-signature"> :Moment</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        Set this ride's fastPass return time window end
+        Set this ride's fastPass return time window start
     </div>
     
 
@@ -820,77 +962,6 @@ only need to call this if fastPass availability has ran out
             <li>
                 
 <span class="param-type">String</span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="fastPassReturnTimeStart">
-    <h4 id="fastPassReturnTimeStart"><span class="type-signature"></span>fastPassReturnTimeStart<span class="type-signature"> :Moment</span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Set this ride's fastPass return time window start
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Moment</span>
 
 
 
@@ -1661,7 +1732,7 @@ Mainly used to restore ride data from cached data
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2018-06-16T13:01:48+08:00
+		on 2018-06-27T02:25:21+08:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

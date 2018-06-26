@@ -39,6 +39,9 @@ function getTimeZone(lat, long) {
         lng: long,
         by: 'position',
       },
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
     }).then((data) => {
       console.log(`Got timezone ${data.zoneName}`);
       resolve(data.zoneName);
@@ -129,8 +132,9 @@ sf.getAPIUrl({
     // write park file
     createParkString(c).then((requirename) => {
       requires.push(requirename);
-
-      process.nextTick(step);
+      setTimeout(() => {
+        process.nextTick(step);
+      }, 500);
     }, console.error);
   };
   process.nextTick(step);
